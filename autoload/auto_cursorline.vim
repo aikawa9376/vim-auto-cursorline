@@ -13,15 +13,17 @@ let s:status = s:disabled
 let s:timer_id = 0
 
 function! auto_cursorline#cursor_moved() abort
-  if s:status == s:window
-    let s:status = s:cursor
-    return
-  endif
-  call auto_cursorline#timer_stop()
-  call auto_cursorline#timer_start()
-  if s:status == s:cursor
-    setlocal nocursorline
-    let s:status = s:disabled
+  if g:auto_cursorline_disable == 0
+    if s:status == s:window
+      let s:status = s:cursor
+      return
+    endif
+    call auto_cursorline#timer_stop()
+    call auto_cursorline#timer_start()
+    if s:status == s:cursor
+      setlocal nocursorline
+      let s:status = s:disabled
+    endif
   endif
 endfunction
 

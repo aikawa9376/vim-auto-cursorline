@@ -7,6 +7,7 @@ let s:save_cpo = &cpoptions
 set cpoptions&vim
 
 let g:auto_cursorline_wait_ms = get(g:, 'auto_cursorline_wait_ms', 1000)
+let g:auto_cursorline_disable = 0
 
 augroup auto-cursorline
   autocmd!
